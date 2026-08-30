@@ -1,0 +1,43 @@
+[package]
+org = "honeypot-r-us"
+name = "honeypot-r-us.github.io"
+version = "0.1.0"
+description = "Astro marketing site for the Honeypot R Us defensive-deception ecosystem"
+license = "Apache-2.0"
+keywords = ["honeypot", "deception", "quarantine", "security", "astro"]
+language = "typescript"
+
+[package.repository]
+vcs = "git"
+url = "https://github.com/honeypot-r-us/honeypot-r-us.github.io"
+
+[install]
+adapter = "none"
+dir = ".vendor/.zed"
+
+[targets.nodejs]
+dir = "."
+adapter = "node"
+
+[publish]
+include_readme = true
+tag_format = "v{version}"
+exclude = [
+  ".env",
+  ".env.*",
+  ".astro/**",
+  ".zed/**",
+  ".zed-pack/**",
+  ".vendor/.zed/**",
+  "dist/**",
+  "node_modules/**",
+  "playwright-report/**",
+  "test-results/**",
+  "tmp/**",
+  "**/*.log",
+  ".DS_Store",
+]
+
+[scripts]
+check = "npm ci --ignore-scripts --no-audit --no-fund && npm run check && npm test && npm run build"
+browser = "npm ci --ignore-scripts --no-audit --no-fund && npm run test:browser"

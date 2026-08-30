@@ -1,0 +1,92 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+type DeliveryStatus = "available" | "building" | "planned";
+
+interface Feature {
+  name: string;
+  description: string;
+  status: DeliveryStatus;
+  label: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  eyebrow: string;
+  headline: string;
+  intro: string;
+  features: readonly Feature[];
+}
+
+const {
+  title,
+  description,
+  eyebrow,
+  headline,
+  intro,
+  features,
+} = Astro.props;
+---
+
+<SiteLayout title={title} description={description}>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{headline}</h1>
+      <p class="lead">{intro}</p>
+      <div class="page-meta">
+        <span class="status status-building">Early access</span>
+        <span class="microcopy">
+          Status labels distinguish working contracts from active build and
+          roadmap items.
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>What the platform is designed to deliver</h2>
+        <p>
+          Each capability carries an explicit delivery state. We do not present
+          a roadmap item as a deployed control.
+        </p>
+      </div>
+      <ul class="feature-list">
+        {
+          features.map((feature) => (
+            <li>
+              <strong>{feature.name}</strong>
+              <p>{feature.description}</p>
+              <span class:list={["status", "status-" + feature.status]}>
+                {feature.label}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <slot />
+
+  <section class="section">
+    <div class="shell cta-band">
+      <div>
+        <p class="eyebrow">Build with us</p>
+        <h2>Start with a bounded, observable pilot.</h2>
+        <p>
+          Define what may be observed, what a quarantine can affect, how it
+          expires, and who reviews the evidence before connecting a production
+          system.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/pricing/">Plan a pilot</a>
+        <a class="button button-secondary" href="/security/">Review safety</a>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

@@ -1,0 +1,80 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+
+const pilotSteps = [
+  {
+    title: "Bound the surface",
+    copy: "Choose the decoys, tenants, networks, retention window, and systems that remain explicitly out of scope.",
+  },
+  {
+    title: "Define the response",
+    copy: "Agree on evidence thresholds, challenge rules, quarantine blast radius, expiry, reviewers, and release policy.",
+  },
+  {
+    title: "Prove the integration",
+    copy: "Test identity failures, duplicate delivery, degraded dependencies, rollback, and teardown before production exposure.",
+  },
+];
+---
+
+<SiteLayout
+  title="Pricing & pilots"
+  description="Plan a bounded Honeypot R Us design-partner pilot with explicit scope, response policy, verification, and exit criteria."
+>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Design-partner pilots</p>
+      <h1>Price the boundary before pricing the traffic.</h1>
+      <p class="lead">
+        HNPT is in early access. Pilot scope and pricing are designed around the
+        protected surface, deception packs, evidence retention, response model,
+        integrations, and verification burden—not a surprise counter after an
+        incident.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>A pilot should be easy to stop safely.</h2>
+        <p>
+          Every engagement begins with success, rollback, export, retention,
+          and teardown criteria.
+        </p>
+      </div>
+      <div class="card-grid">
+        {
+          pilotSteps.map((step, index) => (
+            <article class="card">
+              <span class="card-kicker">Step {index + 1}</span>
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="shell cta-band">
+      <div>
+        <p class="eyebrow">Get ready</p>
+        <h2>Bring the threat model. We will bring the wrong doors.</h2>
+        <p>
+          Organization onboarding will open through the protected organization
+          application when the service ingress is verified.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="https://org.honeypotrus.com">
+          Organization login
+        </a>
+        <a class="button button-secondary" href="/security/">
+          Review security
+        </a>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

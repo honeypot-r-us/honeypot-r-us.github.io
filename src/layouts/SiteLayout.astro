@@ -1,0 +1,189 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const pathname = Astro.url.pathname;
+const canonicalURL = Astro.site
+  ? new URL(pathname, Astro.site).toString()
+  : Astro.url.toString();
+const pageTitle =
+  title === "Honeypot R Us"
+    ? title
+    : [title, "· Honeypot R Us"].join(" ");
+const year = new Date().getUTCFullYear();
+
+const navItems = [
+  { href: "/platform/", label: "Platform" },
+  { href: "/honeypots/", label: "Honeypots" },
+  { href: "/quarantine/", label: "Quarantine" },
+  { href: "/integrations/", label: "Integrations" },
+  { href: "/developers/", label: "Developers" },
+];
+
+const isCurrent = (href: string) => pathname === href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090b0b" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Honeypot R Us" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell header-shell">
+        <a class="brand" href="/" aria-label="Honeypot R Us home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 42 48" role="img">
+              <path
+                fill="currentColor"
+                d="M21 1 40.7 12.5v23L21 47 1.3 35.5v-23L21 1Z"
+              ></path>
+              <path
+                fill="#f7b83b"
+                d="M21 7.2 35.3 15.5v17L21 40.8 6.7 32.5v-17L21 7.2Z"
+              ></path>
+              <path
+                fill="#090b0b"
+                d="M14 16h14v3.8h-4.9v12.3h-4.2V19.8H14V16Z"
+              ></path>
+            </svg>
+          </span>
+          <span class="brand-name">
+            Honeypot R Us
+            <small>Defensive deception</small>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Primary">
+          {
+            navItems.map((item) => (
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="header-actions" aria-label="Account">
+          <a class="button button-quiet" href="https://user.honeypotrus.com">
+            User login
+          </a>
+          <a
+            class="button button-primary"
+            href="https://org.honeypotrus.com"
+          >
+            Organization login
+          </a>
+        </div>
+
+        <details class="mobile-menu">
+          <summary aria-label="Open navigation">Menu</summary>
+          <nav class="mobile-panel" aria-label="Mobile">
+            {
+              navItems.map((item) => (
+                <a
+                  href={item.href}
+                  aria-current={isCurrent(item.href) ? "page" : undefined}
+                >
+                  {item.label}
+                </a>
+              ))
+            }
+            <a href="/security/">Security</a>
+            <a href="/company/">Company</a>
+            <a class="mobile-login" href="/login/">Log in</a>
+          </nav>
+        </details>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-intro">
+          <a class="brand" href="/">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 42 48">
+                <path
+                  fill="currentColor"
+                  d="M21 1 40.7 12.5v23L21 47 1.3 35.5v-23L21 1Z"
+                ></path>
+                <path
+                  fill="#f7b83b"
+                  d="M21 7.2 35.3 15.5v17L21 40.8 6.7 32.5v-17L21 7.2Z"
+                ></path>
+                <path
+                  fill="#090b0b"
+                  d="M14 16h14v3.8h-4.9v12.3h-4.2V19.8H14V16Z"
+                ></path>
+              </svg>
+            </span>
+            <span class="brand-name">Honeypot R Us</span>
+          </a>
+          <p>
+            Security signal, defensive deception, and reversible response for
+            teams that want to catch attackers before real systems become the
+            evidence.
+          </p>
+        </div>
+
+        <nav class="footer-column" aria-label="Product">
+          <strong>Product</strong>
+          <a href="/platform/">Platform</a>
+          <a href="/honeypots/">Honeypots</a>
+          <a href="/quarantine/">Quarantine</a>
+          <a href="/integrations/">Integrations</a>
+        </nav>
+
+        <nav class="footer-column" aria-label="Resources">
+          <strong>Resources</strong>
+          <a href="/developers/">Developers</a>
+          <a href="/security/">Security</a>
+          <a href="/pricing/">Pricing & pilots</a>
+          <a href="https://github.com/honeypot-r-us">GitHub organization</a>
+        </nav>
+
+        <nav class="footer-column" aria-label="Company and account">
+          <strong>Company</strong>
+          <a href="/company/">About</a>
+          <a href="/login/">Log in</a>
+          <a href="https://user.honeypotrus.com">User app</a>
+          <a href="https://org.honeypotrus.com">Organization app</a>
+        </nav>
+      </div>
+
+      <div class="shell footer-bottom">
+        <span>© {year} Honeypot R Us. Built for authorized defensive use.</span>
+        <span>Observe → correlate → challenge → quarantine → playpen → review</span>
+      </div>
+    </footer>
+  </body>
+</html>

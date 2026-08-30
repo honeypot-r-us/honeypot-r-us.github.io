@@ -1,0 +1,78 @@
+---
+import SectionPage from "../../components/SectionPage.astro";
+
+const features = [
+  {
+    name: "Shared Auth verification",
+    description:
+      "The authentication proxy validates exact issuer, audience, client, realm, scope, and assurance contracts before HNPT authorization runs.",
+    status: "building",
+    label: "Integration in development",
+  },
+  {
+    name: "Product-owned authorization",
+    description:
+      "HNPT remains authoritative for tenant membership, application roles, case access, quarantine scope, and response policy.",
+    status: "available",
+    label: "Contract available",
+  },
+  {
+    name: "Separated identity realms",
+    description:
+      "Customer and operator identities fail closed and never fall back to one another.",
+    status: "available",
+    label: "Safety invariant",
+  },
+  {
+    name: "Evidence containment",
+    description:
+      "Attacker-controlled values are bounded at ingestion, parameterized in storage, encoded at output, and excluded from metric labels.",
+    status: "available",
+    label: "Safety invariant",
+  },
+  {
+    name: "Isolated playpen",
+    description:
+      "Synthetic workloads deny production data, credentials, and reachability while preserving reviewable session evidence.",
+    status: "building",
+    label: "In development",
+  },
+] as const;
+---
+
+<SectionPage
+  title="Security"
+  description="Shared Auth boundaries, product-owned authorization, tenant isolation, evidence safety, and reversible response."
+  eyebrow="Defensive by construction"
+  headline="A security product must make its own blast radius legible."
+  intro="HNPT separates authentication from product authorization, customer identity from operator identity, evidence from telemetry, and suspicious sessions from production reachability."
+  {features}
+>
+  <section class="section section-muted">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Defaults that fail safely.</h2>
+        <p>
+          Degraded identity, missing tenant context, ambiguous scope, stale
+          leases, and unknown policy states do not silently become access.
+        </p>
+      </div>
+      <div class="principles">
+        <article class="principle">
+          <h3>No direct identity writes</h3>
+          <p>
+            HNPT consumes verified Shared Auth claims and owns its own product
+            authorization. It does not mutate identity-provider storage.
+          </p>
+        </article>
+        <article class="principle">
+          <h3>No secret-shaped marketing</h3>
+          <p>
+            This static site handles no credentials, sessions, provider tokens,
+            introspection credentials, or customer evidence.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</SectionPage>

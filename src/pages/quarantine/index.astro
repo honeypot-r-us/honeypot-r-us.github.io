@@ -1,0 +1,79 @@
+---
+import SectionPage from "../../components/SectionPage.astro";
+
+const features = [
+  {
+    name: "Reasoned case creation",
+    description:
+      "A case names its tenant, evidence set, policy, proposed scope, confidence, and review owner.",
+    status: "available",
+    label: "Contract available",
+  },
+  {
+    name: "Expiring enforcement leases",
+    description:
+      "Rate limits, challenges, route shaping, and quarantine actions carry start, expiry, renewal, and idempotency identities.",
+    status: "available",
+    label: "Contract available",
+  },
+  {
+    name: "Release workflow",
+    description:
+      "Analysts can request release, but only policy-authorized executors change enforcement state and record the outcome.",
+    status: "available",
+    label: "Contract available",
+  },
+  {
+    name: "Owned isolated playpen",
+    description:
+      "Synthetic services can keep a suspicious actor engaged without production data, credentials, or reachability.",
+    status: "building",
+    label: "In development",
+  },
+  {
+    name: "Third-party redirect",
+    description:
+      "Sending suspicious traffic to unrelated sites is intentionally excluded. HNPT never externalizes the risk to an uninvolved party.",
+    status: "available",
+    label: "Safety invariant",
+  },
+] as const;
+---
+
+<SectionPage
+  title="Quarantine"
+  description="Reviewable, reversible, expiring quarantine and HNPT-owned playpens for bounded defensive response."
+  eyebrow="A sin-bin with due process"
+  headline="Contain the session. Preserve the way back."
+  intro="Quarantine is a lease, not a verdict. Every action is tenant-scoped, reasoned, idempotent, expiring, reviewable, and reversible."
+  {features}
+>
+  <section class="section section-muted">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>The playpen is not production with the labels removed.</h2>
+        <p>
+          It is a separately owned isolation boundary built from synthetic data,
+          fake identities, disposable services, and denied production egress.
+        </p>
+      </div>
+      <div class="principles">
+        <article class="principle">
+          <h3>No unrelated destinations</h3>
+          <p>
+            Suspicious actors are never redirected to search engines, consumer
+            sites, or any third party that did not consent to receive them.
+          </p>
+        </article>
+        <article class="principle">
+          <h3>Review changes the state</h3>
+          <p>
+            Evidence can recommend an action. A typed policy and authorized
+            executor decide whether that action starts, extends, releases, or
+            expires.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</SectionPage>
