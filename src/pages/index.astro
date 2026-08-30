@@ -1,0 +1,214 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const signals = [
+  {
+    title: "Automation pattern",
+    detail: "Impossible interaction cadence",
+    score: "signal +0.31",
+  },
+  {
+    title: "Network correlation",
+    detail: "Repeated decoy contact",
+    score: "signal +0.24",
+  },
+  {
+    title: "Credential lure",
+    detail: "Non-production token touched",
+    score: "signal +0.45",
+  },
+];
+
+const capabilities = [
+  {
+    kicker: "Signal",
+    title: "Correlate weak clues",
+    copy:
+      "Join bounded network, browser-automation, velocity, identity-context, and decoy evidence without pretending an IP address is a person.",
+  },
+  {
+    kicker: "Deception",
+    title: "Offer believable wrong doors",
+    copy:
+      "Place synthetic services, credentials, routes, files, and workflows where legitimate users have no reason to go.",
+  },
+  {
+    kicker: "Response",
+    title: "Contain without guessing",
+    copy:
+      "Escalate through expiring challenges and reversible quarantine before an isolated HNPT-owned playpen is ever considered.",
+  },
+];
+
+const delivery = [
+  {
+    name: "Tenant-scoped event contracts",
+    description:
+      "Typed ingestion, correlation, quarantine, review, playpen, and outcome records with PostgreSQL and CockroachDB portability.",
+    status: "Contract available",
+    tone: "available",
+  },
+  {
+    name: "Reversible quarantine leases",
+    description:
+      "Reasoned, expiring, idempotent actions with release requests and a complete audit trail.",
+    status: "Contract available",
+    tone: "available",
+  },
+  {
+    name: "Session replay and artifact evidence",
+    description:
+      "Bounded transcripts, command timelines, and malware-safe artifact references inspired by mature interactive honeypots.",
+    status: "In development",
+    tone: "building",
+  },
+  {
+    name: "Multi-protocol deception packs",
+    description:
+      "Deployable SSH, HTTP, database, cache, file-transfer, and custom banner decoys with explicit exposure policies.",
+    status: "Roadmap",
+    tone: "planned",
+  },
+];
+---
+
+<SiteLayout
+  title="Honeypot R Us"
+  description="Defensive deception, correlated security signals, reversible quarantine, and owned playpens for catching attackers early."
+>
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div>
+        <p class="eyebrow">Defensive deception · Early access</p>
+        <h1>
+          Catch attackers while they still think they are
+          <span class="highlight">invisible.</span>
+        </h1>
+        <p class="lead">
+          Honeypot R Us helps B2B teams plant believable decoys, correlate weak
+          attack signals, and move suspicious actors through a reviewable
+          response ladder—before production systems become the evidence.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/platform/">
+            Explore the platform
+          </a>
+          <a class="button button-secondary" href="/quarantine/">
+            See the safety model
+          </a>
+        </div>
+        <p class="microcopy">
+          Built for authorized defensive use. No irreversible action from one
+          noisy signal.
+        </p>
+      </div>
+
+      <aside class="signal-panel" aria-label="Illustrative correlated signals">
+        <div class="signal-topline">
+          <span>Illustrative signal graph</span>
+          <span class="live-dot">Correlating</span>
+        </div>
+        <div class="signal-list">
+          {
+            signals.map((signal) => (
+              <div class="signal-row">
+                <span aria-hidden="true"></span>
+                <span>
+                  <strong>{signal.title}</strong>
+                  <small>{signal.detail}</small>
+                </span>
+                <code>{signal.score}</code>
+              </div>
+            ))
+          }
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Signal is evidence. Correlation makes it useful.</h2>
+        <p>
+          Honeypots create high-intent evidence. The surrounding platform adds
+          context, policy, review, and a safe place to keep an attacker busy.
+        </p>
+      </div>
+      <div class="card-grid">
+        {
+          capabilities.map((capability) => (
+            <article class="card">
+              <span class="card-kicker">{capability.kicker}</span>
+              <h3>{capability.title}</h3>
+              <p>{capability.copy}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>A response ladder with an exit at every step.</h2>
+        <p>
+          Escalation stays bounded. Suspicion never skips directly to
+          punishment, and the playpen is always isolated and HNPT-owned.
+        </p>
+      </div>
+      <ol class="ladder">
+        <li><strong>Observe</strong><span>Collect bounded evidence.</span></li>
+        <li><strong>Correlate</strong><span>Join signals by policy.</span></li>
+        <li><strong>Challenge</strong><span>Ask for stronger proof.</span></li>
+        <li><strong>Quarantine</strong><span>Lease reversible limits.</span></li>
+        <li><strong>Playpen</strong><span>Route only to owned isolation.</span></li>
+        <li><strong>Review</strong><span>Release, extend, or block.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Capability, with honest delivery states.</h2>
+        <p>
+          The public roadmap takes cues from mature deception platforms while
+          preserving HNPT's stricter quarantine and tenant-isolation model.
+        </p>
+      </div>
+      <ul class="feature-list">
+        {
+          delivery.map((item) => (
+            <li>
+              <strong>{item.name}</strong>
+              <p>{item.description}</p>
+              <span class:list={["status", "status-" + item.tone]}>
+                {item.status}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell cta-band">
+      <div>
+        <p class="eyebrow">Security is the product</p>
+        <h2>Give attackers a convincing dead end.</h2>
+        <p>
+          Start with decoys and observation. Add reversible quarantine only
+          after the review policy, blast radius, expiry, and release path are
+          explicit.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/pricing/">Plan a pilot</a>
+        <a class="button button-secondary" href="/login/">Log in</a>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

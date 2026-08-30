@@ -1,0 +1,65 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Log in"
+  description="Choose the Honeypot R Us user or organization application. The static marketing site never handles credentials."
+>
+  <header class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Choose your workspace</p>
+      <h1>Continue to a protected HNPT application.</h1>
+      <p class="lead">
+        This static marketing site does not collect credentials or create
+        sessions. Choose the application that matches your role.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="shell">
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-kicker">Individual</span>
+          <h2>User login</h2>
+          <p>
+            Review your assigned cases, evidence, notifications, and approved
+            actions in the user application.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://user.honeypotrus.com">
+              Open user app
+            </a>
+          </div>
+        </article>
+        <article class="card">
+          <span class="card-kicker">Team</span>
+          <h2>Organization login</h2>
+          <p>
+            Configure tenant boundaries, decoys, integrations, review policy,
+            and organization-level security workflows.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://org.honeypotrus.com">
+              Open organization app
+            </a>
+          </div>
+        </article>
+        <article class="card">
+          <span class="card-kicker">Not live yet?</span>
+          <h2>Early-access status</h2>
+          <p>
+            Application hostnames activate only after their Kubernetes
+            services, ingress, certificates, and identity-negative tests are
+            verified. A failed destination does not mean this site handled your
+            credentials.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-secondary" href="/security/">Security model</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

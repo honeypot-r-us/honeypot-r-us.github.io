@@ -1,0 +1,73 @@
+---
+import SectionPage from "../../components/SectionPage.astro";
+
+const features = [
+  {
+    name: "NATS event bridge",
+    description:
+      "Prefix-constrained subjects carry typed HNPT events with durable-delivery and deduplication contracts.",
+    status: "available",
+    label: "Foundation available",
+  },
+  {
+    name: "OpenTelemetry",
+    description:
+      "ORES telemetry conventions keep operational dimensions bounded and redact credentials, payloads, and attacker-controlled identifiers.",
+    status: "available",
+    label: "Foundation available",
+  },
+  {
+    name: "Webhooks",
+    description:
+      "Signed, retryable, idempotent notifications will deliver case and outcome events to customer-owned endpoints.",
+    status: "building",
+    label: "In development",
+  },
+  {
+    name: "SIEM and incident systems",
+    description:
+      "Normalized exports for common security analytics, alerting, and case-management destinations.",
+    status: "planned",
+    label: "Roadmap",
+  },
+  {
+    name: "SQLite and Supabase sync",
+    description:
+      "HNPT Sync wraps opto-sync contracts for offline browser and app views while deriving actor and tenant identity from verified principals.",
+    status: "building",
+    label: "In development",
+  },
+] as const;
+---
+
+<SectionPage
+  title="Integrations"
+  description="Typed NATS, OpenTelemetry, webhook, sync, and security-system integrations for HNPT events and outcomes."
+  eyebrow="Useful outside the dashboard"
+  headline="Carry evidence and outcomes into the systems you already operate."
+  intro="HNPT integrations are typed, tenant-scoped, retryable, and explicit about delivery. A notification is acknowledged only after an idempotent effect or a durable deduplication record."
+  {features}
+>
+  <section class="section section-muted">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Telemetry describes the system, not the attacker.</h2>
+        <p>
+          High-cardinality evidence belongs in protected evidence records.
+          Metrics and logs use bounded dimensions, typed outcomes, and stable
+          reason codes.
+        </p>
+      </div>
+      <div class="principles">
+        <article class="principle">
+          <h3>At-least-once is explicit</h3>
+          <p>Consumers deduplicate by stable event identity before committing an effect.</p>
+        </article>
+        <article class="principle">
+          <h3>Secrets never become flags</h3>
+          <p>Executables use flags-2-env contracts; credentials stay in approved secret references.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</SectionPage>

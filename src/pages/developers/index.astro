@@ -1,0 +1,79 @@
+---
+import SectionPage from "../../components/SectionPage.astro";
+
+const features = [
+  {
+    name: "Rust, Dart, and TypeScript",
+    description:
+      "Tier 1 models and adapters receive the deepest validation for SeaORM, Flutter/Dart, Prisma, Drizzle, and JSON Schema workflows.",
+    status: "available",
+    label: "Foundation available",
+  },
+  {
+    name: "17-language client surface",
+    description:
+      "Generated SDK lanes cover TypeScript, Rust, Dart, Python, Go, Java, Kotlin, Swift, C#, C, C++, Ruby, PHP, Elixir, Lua, Zig, and Shell.",
+    status: "building",
+    label: "In development",
+  },
+  {
+    name: "Transport-neutral interfaces",
+    description:
+      "Schemas and types remain separate from client bodies so transports can evolve without redefining the domain.",
+    status: "available",
+    label: "Foundation available",
+  },
+  {
+    name: "CLI and daemon control",
+    description:
+      "The Rust hnpt CLI, with hpt as its short alias, uses flags-2-env and communicates with the local daemon.",
+    status: "building",
+    label: "In development",
+  },
+  {
+    name: "Public API",
+    description:
+      "The reserved API origin will expose tenant-scoped ingestion and control only after cluster ingress and Shared Auth verification are complete.",
+    status: "building",
+    label: "Reserved, not live",
+  },
+] as const;
+---
+
+<SectionPage
+  title="Developers"
+  description="Rust, Dart, TypeScript, JSON Schema, 17-language SDK, CLI, and API contracts for Honeypot R Us."
+  eyebrow="Typed at every boundary"
+  headline="Integrate deception without hand-copying the domain model."
+  intro="HNPT keeps schemas, interfaces, SDK bodies, database adapters, and command contracts distinct—then tests that they still agree."
+  {features}
+>
+  <section class="section section-muted">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Stable entry points, intentionally not activated early.</h2>
+        <p>
+          The hostnames are reserved as architecture contracts. Public traffic
+          waits for a verified service, ingress, certificate, and negative auth
+          test.
+        </p>
+      </div>
+      <div class="endpoint">
+        <code>api.honeypotrus.com</code>
+        <span>Tenant API · reserved pending ingress verification</span>
+      </div>
+      <div class="endpoint">
+        <code>hnpt / hpt</code>
+        <span>Rust CLI · local daemon control</span>
+      </div>
+      <div class="endpoint">
+        <code>$HOME/.hnpt/config/hnpt-config.toml</code>
+        <span>Canonical local configuration path</span>
+      </div>
+      <div class="endpoint">
+        <code>.zpkg.toml</code>
+        <span>Ecosystem dependency and release authority</span>
+      </div>
+    </div>
+  </section>
+</SectionPage>

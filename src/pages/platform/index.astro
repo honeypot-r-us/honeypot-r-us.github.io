@@ -1,0 +1,80 @@
+---
+import SectionPage from "../../components/SectionPage.astro";
+
+const features = [
+  {
+    name: "Signal intake",
+    description:
+      "Tenant-scoped observations from decoys, endpoints, edge controls, and approved integrations enter one typed event plane.",
+    status: "available",
+    label: "Contract available",
+  },
+  {
+    name: "Correlation and discovery",
+    description:
+      "Portable PostgreSQL and CockroachDB records preserve observations, correlations, discoveries, evidence, reviews, and outcomes.",
+    status: "available",
+    label: "Contract available",
+  },
+  {
+    name: "Session timeline",
+    description:
+      "A replay-oriented view joins decoy interactions and bounded artifacts without putting attacker-controlled bodies into telemetry labels.",
+    status: "building",
+    label: "In development",
+  },
+  {
+    name: "Analyst workbench",
+    description:
+      "Customer and organization views will explain why a case exists, what is leased, when it expires, and who may release it.",
+    status: "building",
+    label: "In development",
+  },
+  {
+    name: "Automated response policy",
+    description:
+      "Typed state transitions can propose challenges and quarantine leases; irreversible punishment always requires a separate policy decision.",
+    status: "planned",
+    label: "Roadmap",
+  },
+] as const;
+---
+
+<SectionPage
+  title="Platform"
+  description="A typed event plane for defensive deception, correlation, reversible quarantine, evidence, and outcomes."
+  eyebrow="One event plane"
+  headline="From the first decoy touch to a reviewable outcome."
+  intro="HNPT joins deception evidence with network, browser-automation, velocity, and identity context—then keeps every response scoped, expiring, and explainable."
+  {features}
+>
+  <section class="section section-muted">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Effects stay at the boundary.</h2>
+        <p>
+          Pure correlation and policy decisions produce typed commands. Network,
+          database, edge, and quarantine executors apply them idempotently and
+          record the result.
+        </p>
+      </div>
+      <div class="principles">
+        <article class="principle">
+          <h3>Evidence is not identity</h3>
+          <p>
+            IP addresses, fingerprints, automation traits, and graph proximity
+            can increase confidence; none of them proves who a person is.
+          </p>
+        </article>
+        <article class="principle">
+          <h3>Outcomes are durable</h3>
+          <p>
+            Every proposal, lease, executor attempt, review, release, and
+            outcome remains queryable and portable across PostgreSQL and
+            CockroachDB.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</SectionPage>

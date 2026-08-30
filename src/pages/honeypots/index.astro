@@ -1,0 +1,79 @@
+---
+import SectionPage from "../../components/SectionPage.astro";
+
+const features = [
+  {
+    name: "HTTP and API decoys",
+    description:
+      "Synthetic routes, tokens, forms, and machine-facing endpoints that legitimate clients have no reason to touch.",
+    status: "building",
+    label: "In development",
+  },
+  {
+    name: "SSH and terminal sessions",
+    description:
+      "Interactive, replayable sessions with bounded command timelines and isolated fake filesystems.",
+    status: "planned",
+    label: "Roadmap",
+  },
+  {
+    name: "Database and cache lures",
+    description:
+      "Believable PostgreSQL, MySQL, Redis, and custom-banner surfaces with no route to production data.",
+    status: "planned",
+    label: "Roadmap",
+  },
+  {
+    name: "Credential and document lures",
+    description:
+      "Non-production secrets and files that emit high-intent evidence when used outside their declared boundary.",
+    status: "building",
+    label: "In development",
+  },
+  {
+    name: "Custom protocol packs",
+    description:
+      "Versioned deception packs with exposure, retention, egress, artifact, and shutdown policies.",
+    status: "planned",
+    label: "Roadmap",
+  },
+] as const;
+---
+
+<SectionPage
+  title="Honeypots"
+  description="Believable, isolated decoys and lures with explicit protocol, exposure, evidence, and egress policies."
+  eyebrow="Believable wrong doors"
+  headline="High-intent evidence without production reachability."
+  intro="A useful honeypot looks worth touching and is safe to lose. HNPT deception packs are designed to be disposable, observable, and isolated from customer data and credentials."
+  {features}
+>
+  <section class="section section-muted">
+    <div class="shell">
+      <div class="section-heading">
+        <h2>Every decoy ships with boundaries.</h2>
+        <p>
+          Protocol emulation is only one part of a defensible deception system.
+          Exposure, retention, outbound access, and teardown are policies too.
+        </p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-kicker">Exposure</span>
+          <h3>Know who can reach it</h3>
+          <p>Public, partner, tenant, and internal decoys have distinct ingress contracts.</p>
+        </article>
+        <article class="card">
+          <span class="card-kicker">Evidence</span>
+          <h3>Bound attacker input</h3>
+          <p>Preserve useful raw evidence while keeping it out of SQL, shell, HTML, and metric labels.</p>
+        </article>
+        <article class="card">
+          <span class="card-kicker">Egress</span>
+          <h3>Make escape impossible</h3>
+          <p>Playpen workloads receive synthetic data and deny production credentials and network paths.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</SectionPage>
