@@ -140,8 +140,15 @@ test("zed-pkg owns the repository contract and npm stays a locked adapter", asyn
   assert.match(manifest, /\[targets\.nodejs\]/);
   assert.match(manifest, /adapter = "node"/);
   assert.match(manifest, /\[scripts\]/);
-  assert.equal(packageJson.dependencies.astro, "7.2.9");
-  assert.equal(lock.packages[""].dependencies.astro, "7.2.9");
+  assert.match(packageJson.dependencies.astro, /^\d+\.\d+\.\d+$/);
+  assert.equal(
+    lock.packages[""].dependencies.astro,
+    packageJson.dependencies.astro,
+  );
+  assert.equal(
+    lock.packages["node_modules/astro"].version,
+    packageJson.dependencies.astro,
+  );
   assert.match(agents, /no command surface/);
 });
 
