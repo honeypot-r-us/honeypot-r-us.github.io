@@ -21,7 +21,7 @@
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "@types/node": "26.4.1",
-    "playwright": "1.62.1",
+    "playwright": "1.63.0",
     "typescript": "5.9.3"
   }
 }
